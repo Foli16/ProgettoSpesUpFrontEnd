@@ -67,4 +67,50 @@ export class AuthService
       }
     );
   }
+
+  changePassword(password:string)
+  {
+    let body = {'password':password};
+    this.http.put('/api/auth/changepass',body).subscribe(
+      () =>
+      {
+        this.letturaInfoUtente();
+        this.router.navigate(['/']);
+      },
+      (error) =>
+      {
+        alert("Password change failed");
+      }
+    );
+  }
+
+  changeUsername(username:string)
+  {
+    let body = {'username':username};
+    this.http.put('/api/auth/changeusername',body).subscribe(
+      () =>
+      {
+        this.letturaInfoUtente();
+        this.router.navigate(['/']);
+      },
+      (error) =>
+      {
+        alert("Username change failed");
+      }
+    );
+  }
+
+  deleteUserProfile()
+  {
+    this.http.delete('/api/auth/deleteuser').subscribe(
+      () =>
+      {
+        this.router.navigate(['/']);
+      },
+      (error) =>
+      {
+        alert("Profile deletion failed");
+      }
+    )
+  }
 }
