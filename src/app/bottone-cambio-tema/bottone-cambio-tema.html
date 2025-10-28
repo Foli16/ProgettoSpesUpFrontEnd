@@ -1,0 +1,20 @@
+<div class="position-fixed top-0 end-0 m-1 mt-3 d-flex align-items-center gap-2">
+  @if (checked)
+  {
+    <i class="bi bi-moon" style="font-size: 0.7rem;"></i>
+  }
+  @else
+  {
+  <i class="bi bi-brightness-high" style="font-size: 0.7rem;"></i>
+  }
+
+  <div class="form-check form-switch m-0 ">
+    <input
+      class="form-check-input form-check-input-secondary"
+      type="checkbox"
+      id="themeToggle"
+      [checked]="checked"
+      (change)="toggleTheme($event)"
+    >
+  </div>
+</div>
