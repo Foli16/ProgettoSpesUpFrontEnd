@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="'/'">Homepage</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        @if (serv.userInformation)
+        {
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="'/info'">{{serv.userInformation.username}}</a>
+          </li>
+          <li class="nav-item">
+            <button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logout</button>
+          </li>
+        } @else
+        {
+          <li class="nav-item">
+            <button type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Login
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page"  [routerLink]="'/register'">Register</a>
+          </li>
+        }
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<app-bottone-cambio-tema></app-bottone-cambio-tema>

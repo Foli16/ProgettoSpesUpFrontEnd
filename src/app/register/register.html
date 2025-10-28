@@ -1,0 +1,18 @@
+<div class="container mt-5">
+<div class="mb-3">
+  <label for="username" class="form-label">Username</label>
+  <input [(ngModel)]="username" type="text" class="form-control" id="username" placeholder="Inserisci username">
+</div>
+
+<div class="mb-3">
+  <label for="email" class="form-label">Email</label>
+  <input [(ngModel)]="email" type="email" class="form-control" id="email" placeholder="Inserisci email">
+</div>
+
+<div class="mb-3">
+  <label for="password" class="form-label">Password</label>
+  <input [(ngModel)]="password" type="password" class="form-control" id="password" placeholder="Inserisci password">
+</div>
+
+<button (click)="registra()" type="submit" class="btn btn-primary">Registrati</button>
+</div>
