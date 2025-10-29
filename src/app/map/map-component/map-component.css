@@ -1,0 +1,13 @@
+.search-box {
+  margin-bottom: 10px;
+}
+
+.search-box input {
+  width: 300px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.list {
+  margin-top: 15px;
+}
