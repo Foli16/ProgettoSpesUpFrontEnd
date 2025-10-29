@@ -1,1 +1,54 @@
+@import "bootstrap/scss/functions";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600&display=swap');
+
+$font-body: 'Open Sans', sans-serif;
+$font-heading: 'Raleway', sans-serif;
+
+$primary: #056939;
+$secondary: #7FB069;
+$neutral: #6c757d;
+$info: #077187;
+$danger: #904E55;
+$light: #FFFBFE;
+$dark: #056939;
+$body-bg: $light;
+$body-color: #1A1A1A;
+
+$headings-font-weight: 600;
+$headings-line-height: 1.2;
+
+$btn-font-size: 1.2rem;
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 1.5rem;
+$btn-border-radius: 0.5rem;
+
 @import "bootstrap/scss/bootstrap";
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font-family: $font-body;
+}
+
+.container.mt-5 {
+  border: 1px solid $neutral;
+  border-radius: 9px;
+}
+
+.bg-info {
+  width: calc(100% + 24px);
+  margin-left: -12px;
+}
+
+h1 {
+  font-size: 32px;
+  padding: 3px 15px;
+  text-transform: uppercase;
+}
+
+.subtitles {
+  color: $neutral;
+  font-family: $font-body;
+  font-style: italic;
+}

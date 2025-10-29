@@ -1,18 +1,88 @@
-<div class="container mt-5">
-<div class="mb-3">
-  <label for="username" class="form-label">Username</label>
-  <input [(ngModel)]="username" type="text" class="form-control" id="username" placeholder="Inserisci username">
+
+<div class="row justify-content-center">
+  <div class="col-12 col-md-6">
+  <div class="container mt-5">
+  <form [formGroup]="miaForm" (ngSubmit)="registra()">
+
+    <div class="bg-primary text-white text-center w-100">
+      <h1>I tuoi dati</h1>
+    </div>
+
+    <div class="subtitles mb-4">
+      Tutti i campi sono obbligatori
+    </div>
+
+    <!-- USERNAME -->
+    <div class="mb-4">
+      <label for="username" class="form-label"><b>Username</b></label>
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        class="form-control"
+        placeholder="Inserisci username"
+        [ngClass]="{ 'is-invalid': miaForm.get('username')?.invalid && miaForm.get('username')?.touched }"
+      />
+      <div class="invalid-feedback">Username non valido (minimo 4 caratteri)</div>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="mb-4">
+      <label for="email" class="form-label"><b>Email</b></label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        placeholder="Inserisci email"
+        [ngClass]="{ 'is-invalid': miaForm.get('email')?.invalid && miaForm.get('email')?.touched }"
+      />
+      <div class="invalid-feedback">Email non valida</div>
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="mb-4">
+      <label for="password" class="form-label"><b>Password</b></label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        placeholder="Inserisci password"
+        [ngClass]="{ 'is-invalid': miaForm.get('password')?.invalid && miaForm.get('password')?.touched }"
+      />
+      <div class="invalid-feedback">
+        Password non valida: deve contenere maiuscola, minuscola, numero e simbolo
+      </div>
+    </div>
+
+    <!-- CONFERMA PASSWORD -->
+    <div class="mb-4">
+      <label for="confirmPassword" class="form-label"><b>Conferma Password</b></label>
+      <input
+        type="password"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+        class="form-control"
+        placeholder="Conferma password"
+        [ngClass]="{
+          'is-invalid':
+            miaForm.get('confirmPassword')?.touched && !controllaPasswordUguali()
+        }"
+      />
+      <div class="invalid-feedback">Le password non coincidono</div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="text-center">
+    <button
+      type="submit"
+      class="btn btn-primary w-20"
+      [disabled]="miaForm.invalid || !controllaPasswordUguali()"> Registrati
+    </button>
+    </div>
+  </form>
+</div>
+</div>
 </div>
 
-<div class="mb-3">
-  <label for="email" class="form-label">Email</label>
-  <input [(ngModel)]="email" type="email" class="form-control" id="email" placeholder="Inserisci email">
-</div>
-
-<div class="mb-3">
-  <label for="password" class="form-label">Password</label>
-  <input [(ngModel)]="password" type="password" class="form-control" id="password" placeholder="Inserisci password">
-</div>
-
-<button (click)="registra()" type="submit" class="btn btn-primary">Registrati</button>
-</div>
