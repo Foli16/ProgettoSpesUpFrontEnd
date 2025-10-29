@@ -72,14 +72,14 @@ export class AuthService
   {
     let body = {'password':password};
     this.http.put('/api/auth/changepass',body).subscribe(
-      () =>
       {
-        this.letturaInfoUtente();
-        this.router.navigate(['/']);
-      },
-      (error) =>
-      {
-        alert("Password change failed");
+        next: () => {
+          this.letturaInfoUtente();
+          this.router.navigate(['/']);
+        },
+        error: () => {
+          alert("Password change failed");
+        }
       }
     );
   }
@@ -88,14 +88,14 @@ export class AuthService
   {
     let body = {'username':username};
     this.http.put('/api/auth/changeusername',body).subscribe(
-      () =>
       {
-        this.letturaInfoUtente();
-        this.router.navigate(['/']);
-      },
-      (error) =>
-      {
-        alert("Username change failed");
+        next: () => {
+          this.letturaInfoUtente();
+          this.router.navigate(['/']);
+        },
+        error: () => {
+          alert("Username change failed");
+        }
       }
     );
   }
@@ -103,13 +103,14 @@ export class AuthService
   deleteUserProfile()
   {
     this.http.delete('/api/auth/deleteuser').subscribe(
-      () =>
       {
-        this.router.navigate(['/']);
-      },
-      (error) =>
-      {
-        alert("Profile deletion failed");
+        next: () =>
+        {
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          alert("Profile deletion failed");
+        }
       }
     )
   }
