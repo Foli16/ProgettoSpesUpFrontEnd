@@ -52,9 +52,9 @@ export class AuthService
     document.cookie = 'token=; Path=/api/auth; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
 
-  login(username: string, password: string)
+  login(email: string, password: string)
   {
-    let body = {'username': username, 'password': password};
+    let body = {'email': email, 'password': password};
     this.http.post('/api/auth/login', body).subscribe
     (
       //usa quando response 200
