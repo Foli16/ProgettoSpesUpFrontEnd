@@ -20,17 +20,19 @@ export class AuthService
   registration(username: string, password: string,email:string)
   {
     let body = {'username': username, 'password': password, 'email': email};
-    this.http.post('/api/auth/register', body).subscribe(
+    this.http.post('/api/auth/register', body).subscribe
+    (
       //usa quando response 200
-      () =>
       {
-        this.letturaInfoUtente();
-        this.router.navigate(['/']);
-      },
-      //usa quando response 400-500
-      (error) =>
-      {
-        alert("Registration Failed");
+        next: () => {
+          this.letturaInfoUtente();
+          this.router.navigate(['/']);
+        },
+        //usa quando response 400-500
+        error:() =>
+        {
+          alert("Registration Failed");
+        }
       }
     );
   }
@@ -53,17 +55,19 @@ export class AuthService
   login(username: string, password: string)
   {
     let body = {'username': username, 'password': password};
-    this.http.post('/api/auth/login', body).subscribe(
+    this.http.post('/api/auth/login', body).subscribe
+    (
       //usa quando response 200
-      () =>
       {
-        this.letturaInfoUtente();
-        this.router.navigate(['/']);
-      },
-      //usa quando response 400-500
-      (error) =>
-      {
-        alert(error.message);
+        next: () =>
+        {
+          this.letturaInfoUtente();
+          this.router.navigate(['/']);
+        },
+        //usa quando response 400-500
+        error:(error) => {
+          alert(error.message);
+        }
       }
     );
   }
@@ -71,7 +75,8 @@ export class AuthService
   changePassword(password:string)
   {
     let body = {'password':password};
-    this.http.put('/api/auth/changepass',body).subscribe(
+    this.http.put('/api/auth/changepass',body).subscribe
+    (
       {
         next: () => {
           this.letturaInfoUtente();
@@ -87,7 +92,8 @@ export class AuthService
   changeUsername(username:string)
   {
     let body = {'username':username};
-    this.http.put('/api/auth/changeusername',body).subscribe(
+    this.http.put('/api/auth/changeusername',body).subscribe
+    (
       {
         next: () => {
           this.letturaInfoUtente();
@@ -102,13 +108,14 @@ export class AuthService
 
   deleteUserProfile()
   {
-    this.http.delete('/api/auth/deleteuser').subscribe(
+    this.http.delete('/api/auth/deleteuser').subscribe
+    (
       {
         next: () =>
         {
           this.router.navigate(['/']);
         },
-        error: (error) => {
+        error: () => {
           alert("Profile deletion failed");
         }
       }
