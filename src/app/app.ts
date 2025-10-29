@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import {Login} from './login/login';
 import {Register} from './register/register';
 import {Navbar} from './navbar/navbar';
+import {MapComponent} from './map/map-component/map-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Register, Navbar, Login],
+  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

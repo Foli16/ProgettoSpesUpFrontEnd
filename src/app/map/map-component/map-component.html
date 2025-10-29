@@ -1,0 +1,12 @@
+<div class="search-box">
+  <input type="text" placeholder="Inserisci un indirizzo" [(ngModel)]="address" />
+  <button (click)="search()">Cerca supermercati</button>
+</div>
+
+<google-map height="500px" width="100%" [center]="center" [zoom]="zoom">
+  <map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [title]="marker.title">
+  </map-marker>
+</google-map>
