@@ -12,7 +12,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     RouterLink,
     BottoneCambioTema,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BottoneCambioTema
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
