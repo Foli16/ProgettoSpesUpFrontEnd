@@ -4,10 +4,11 @@ import {Login} from './login/login';
 import {Register} from './register/register';
 import {Navbar} from './navbar/navbar';
 import {MapComponent} from './map/map-component/map-component';
+import {SelezioneSupermercati} from './selezione-supermercati/selezione-supermercati';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent],
+  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent, SelezioneSupermercati],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

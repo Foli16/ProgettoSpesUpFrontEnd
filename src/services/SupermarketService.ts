@@ -17,6 +17,7 @@ export interface Supermarket {
   providedIn: 'root'
 })
 export class SupermarketService {
+
   private apiUrl = 'http://localhost:8080/api/supermarkets';
 
   constructor(private http: HttpClient) { }
