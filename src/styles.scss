@@ -26,14 +26,12 @@ $btn-border-radius: 0.5rem;
 @import "bootstrap/scss/bootstrap";
 
 body {
-  background-color: $body-bg;
-  color: $body-color;
   font-family: $font-body;
 }
 
 .container.mt-5 {
   border: 1px solid $neutral;
-  border-radius: 9px;
+  margin-top: 0 !important;
 }
 
 .bg-info {
@@ -43,7 +41,7 @@ body {
 
 h1 {
   font-size: 32px;
-  padding: 3px 15px;
+  padding: 15px 15px;
   text-transform: uppercase;
 }
 
@@ -52,3 +50,8 @@ h1 {
   font-family: $font-body;
   font-style: italic;
 }
+
+html, body {
+  overflow-x: hidden;
+}
+

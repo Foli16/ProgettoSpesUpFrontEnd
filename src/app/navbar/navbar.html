@@ -1,4 +1,94 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar bg-body-tertiary fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <!-- SINISTRA -->
+    <div class="d-flex align-items-center">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-label="Toggle navigation">
+        <span class="bi-person"></span>
+      </button>
+    </div>
+
+    <!-- CENTRO -->
+    <div class="position-absolute start-50 translate-middle-x">
+      <a routerLink="/" class="navbar-brand">
+        <img src="assets/logo.png" alt="Logo" height="40">
+      </a>
+    </div>
+
+    <!-- DESTRA -->
+    <div class="d-flex align-items-center gap-2 ms-auto">
+      <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-heart"></span></button>
+      <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-cart-dash"></span></button>
+      <app-bottone-cambio-tema></app-bottone-cambio-tema>
+    </div>
+
+  </div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        @if (serv.userInformation)
+        {<h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{serv.userInformation.username}}</h5>}
+        @else
+        {}
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Homepage</a>
+          </li>
+          @if (serv.userInformation) {
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'/info'">Il tuo profilo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'/'">I tuoi supermercati</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'/'">I tuoi preferiti</a>
+            </li>
+            <li class="nav-item">
+              <button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logout</button>
+            </li>
+          } @else {
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'/'">I tuoi supermercati</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Login
+              </button>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="'/register'">Registrati</a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+</nav>
+
+
+
+
+<!--<div class="col-12, cols-md-6">
+
+</div>
+<div class="col-12, col-md-4">
+<button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logo</button>
+</div>
+  <div class="col-12, column-gap-md-0">
+    <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-heart"></span></button>
+  </div>
+<div class="col-12, column-gap-md-0">
+  <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-cart"></span></button>
+</div>-->
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,25 +122,8 @@
   </div>
 </nav>
 
-<app-bottone-cambio-tema></app-bottone-cambio-tema>
 
-<!-- <nav class="navbar bg-body-tertiary fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Offcanvas navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
+<li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
           <li class="nav-item dropdown">
@@ -72,6 +145,4 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
-    </div>
-  </div>
-</nav> -->
+    </div>-->
