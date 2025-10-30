@@ -1,0 +1,15 @@
+<ul class="supermarket-list">
+  @for (n of serv.names; track $index) {
+    <li class="item">
+      <span>{{ n.name }}</span>
+
+      <input type="checkbox"
+             [(ngModel)]="n.selected"
+             (change)="updateSelectedSupermarkets()" />
+    </li>
+  }
+</ul>
+
+<button (click)="serv.getProductsBySupermarket()">
+  Cerca Prodotti
+</button>
