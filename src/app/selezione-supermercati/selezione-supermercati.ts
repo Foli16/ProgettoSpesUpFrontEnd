@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import {SupermarketService} from '../../services/SupermarketService';
 import {ProductService} from '../../services/product-service';
 import {FormsModule} from '@angular/forms';
+import {MapComponent} from "../map/map-component/map-component";
 
 @Component({
   selector: 'app-selezione-supermercati',
-  imports: [
-    FormsModule
-  ],
+    imports: [
+        FormsModule,
+        MapComponent
+    ],
   templateUrl: './selezione-supermercati.html',
   styleUrl: './selezione-supermercati.css'
 })

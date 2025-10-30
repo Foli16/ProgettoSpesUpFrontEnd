@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Product} from '../model/Product';
+import {Router} from '@angular/router';
 
 export interface SupermarketName{id:string, name:string, selected?: boolean; }
 
@@ -9,7 +10,7 @@ export interface SupermarketName{id:string, name:string, selected?: boolean; }
 })
 export class ProductService {
 
-  constructor(private http: HttpClient) { this.getSupermarketList()}
+  constructor(private http: HttpClient, private router: Router) { this.getSupermarketList()}
 
   names: SupermarketName[] = [];
   selectedNames: string[] = [];
@@ -28,6 +29,7 @@ export class ProductService {
       {
         next:(resp) => {
         this.products=resp;
+        this.router.navigate(["/productsofsupermarket"])
         },
         error:()=>{
           alert("l'operazione è fallita")
