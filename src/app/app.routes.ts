@@ -13,9 +13,8 @@ export const routes: Routes = [
   //{path:"",component:Homepage},
   {path:"login",component:Login},
   {path:"register",component:Register},
-  {path:"map",component:MapComponent},
   {path:"info",component:Info,canActivate:[loggedGuard]},
-  {path:"",component:SelezioneSupermercati},
+  {path:"",component:MapComponent},
   {path:"productsofsupermarket", component:ListaProdotti},
   {path:"bycategory", component:PaginaCategoria}
 ];

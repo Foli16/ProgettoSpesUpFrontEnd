@@ -8,7 +8,6 @@ import {MapComponent} from "../map/map-component/map-component";
   selector: 'app-selezione-supermercati',
     imports: [
         FormsModule,
-        MapComponent
     ],
   templateUrl: './selezione-supermercati.html',
   styleUrl: './selezione-supermercati.css'
