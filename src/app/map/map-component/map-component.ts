@@ -3,6 +3,7 @@ import { Supermarket, SupermarketService } from '../../../services/SupermarketSe
 import { FormsModule } from '@angular/forms';
 import { GoogleMap, MapMarker, MapInfoWindow } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
+import {SelezioneSupermercati} from '../../selezione-supermercati/selezione-supermercati';
 
 @Component({
   selector: 'app-map',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     GoogleMap,
     MapMarker,
-    MapInfoWindow
+    MapInfoWindow,
+    SelezioneSupermercati
   ],
   styleUrls: ['./map-component.css']
 })

@@ -52,7 +52,7 @@
             <a class="nav-link" [routerLink]="'/'" data-bs-dismiss="offcanvas">I tuoi preferiti</a>
           </li>
           <li class="nav-item">
-            <button (click)="serv.logout()" class="nav-link" aria-current="page" data-bs-dismiss="offcanvas">Logout</button>
+            <button (click)="serv.logout()" [routerLink]="'/'" class="nav-link" aria-current="page" data-bs-dismiss="offcanvas">Logout</button>
           </li>
         } @else {
           <li class="nav-item">

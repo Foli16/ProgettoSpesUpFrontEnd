@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth-service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgClass } from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-info',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, NgIf],
   templateUrl: './info.html',
   styleUrl: './info.css'
 })
 export class Info {
 
+  errorMessage: string | null = null;
+  successMessage: string | null = null;
   passwordForm: FormGroup;
   usernameForm: FormGroup;
 
@@ -52,8 +54,21 @@ export class Info {
     }
 
     const password = this.passwordForm.get('password')?.value;
-    this.serv.changePassword(password);
+
+    try {
+      this.serv.changePassword(password);
+
+      this.successMessage = 'Password cambiata con successo!';
+      this.errorMessage = null;
+      this.passwordForm.reset();
+
+      setTimeout(() => (this.successMessage = null), 5000);
+    } catch (error) {
+      this.errorMessage = 'Errore durante il cambio password.';
+      this.successMessage = null;
+    }
   }
+
 
   controllaPasswordUguali(): boolean {
     const pass = this.passwordForm.get('password')?.value;
