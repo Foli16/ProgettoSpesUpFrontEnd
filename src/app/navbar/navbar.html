@@ -17,7 +17,7 @@
     <!-- CENTRO -->
     <div class="position-absolute start-50 translate-middle-x">
       <a routerLink="/" class="navbar-brand">
-        <img src="assets/logo.png" alt="Logo" height="40">
+        <img [src]="'assets/Logo.png'" alt="Logo" height="100" width="150" style="margin-top: 10px;">
       </a>
     </div>
 
@@ -27,67 +27,65 @@
       <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-cart-dash"></span></button>
       <app-bottone-cambio-tema></app-bottone-cambio-tema>
     </div>
-
   </div>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        @if (serv.userInformation)
-        {<h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{serv.userInformation.username}}</h5>}
-        @else
-        {}
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Homepage</a>
-          </li>
-          @if (serv.userInformation) {
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/info'">Il tuo profilo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/'">I tuoi supermercati</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/'">I tuoi preferiti</a>
-            </li>
-            <li class="nav-item">
-              <button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logout</button>
-            </li>
-          } @else {
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/'">I tuoi supermercati</a>
-            </li>
-            <li class="nav-item">
-              <button type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Login
-              </button>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="'/register'">Registrati</a>
-            </li>
-          }
-        </ul>
-      </div>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+      @if (serv.userInformation)
+      {<h5 class="offcanvas-title" id="offcanvasNavbarLabel" >{{serv.userInformation.username}}</h5>}
+      @else
+      {}
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#" data-bs-dismiss="offcanvas">Homepage</a>
+        </li>
+        @if (serv.userInformation) {
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/info'" data-bs-dismiss="offcanvas">Il tuo profilo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/map'" data-bs-dismiss="offcanvas">I tuoi supermercati</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/'" data-bs-dismiss="offcanvas">I tuoi preferiti</a>
+          </li>
+          <li class="nav-item">
+            <button (click)="serv.logout()" [routerLink]="'/'" class="nav-link" aria-current="page" data-bs-dismiss="offcanvas">Logout</button>
+          </li>
+        } @else {
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/map'" data-bs-dismiss="offcanvas">I tuoi supermercati</a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link" data-bs-dismiss="offcanvas" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Login
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [routerLink]="'/register'" data-bs-dismiss="offcanvas">Registrati</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
 </nav>
 
 
 
+            <!--<div class="col-12, cols-md-6">
 
-<!--<div class="col-12, cols-md-6">
-
-</div>
-<div class="col-12, col-md-4">
-<button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logo</button>
-</div>
-  <div class="col-12, column-gap-md-0">
-    <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-heart"></span></button>
-  </div>
-<div class="col-12, column-gap-md-0">
-  <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-cart"></span></button>
-</div>-->
+            </div>
+            <div class="col-12, col-md-4">
+            <button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logo</button>
+            </div>
+              <div class="col-12, column-gap-md-0">
+                <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-heart"></span></button>
+              </div>
+            <div class="col-12, column-gap-md-0">
+              <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-cart"></span></button>
+            </div>-->
 <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,29 +118,4 @@
       </ul>
     </div>
   </div>
-</nav>
-
-
-<li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>-->
+</nav> -->

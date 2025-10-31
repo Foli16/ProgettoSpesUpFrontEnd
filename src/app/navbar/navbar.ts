@@ -4,6 +4,7 @@ import {RouterLink} from '@angular/router';
 import {AuthService} from '../../services/auth-service';
 import {Login} from '../login/login';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BottoneCambioTema,
     FormsModule,
     ReactiveFormsModule,
-    BottoneCambioTema
+    BottoneCambioTema,
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
@@ -22,6 +23,4 @@ export class Navbar {
 
   constructor(public serv:AuthService) {
   }
-
-
 }
