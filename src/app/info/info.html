@@ -1,70 +1,84 @@
-<nav class="navbar bg-body-tertiary fixed-top">
-  <div class="container-fluid">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
+<div class="container mt-4">
 
-      <!-- Bottone a sinistra -->
-      <div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="bi-person"></span>
-        </button>
-      </div>
-
-      <!-- Bottone al centro -->
-      <div class="position-absolute start-50 translate-middle-x">
-        <button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logo</button>
-      </div>
-
-      <!-- Due bottoni a destra -->
-      <div class="d-flex gap-2">
-        <button (click)="serv.logout()" class="nav-link active" aria-current="page" >preferiti</button>
-        <button (click)="serv.logout()" class="nav-link active" aria-current="page" >carrello</button>
-      </div>
-
-    </div>
-    <!--<div class="col-12, cols-md-6">
-
-    </div>
-    <div class="col-12, col-md-4">
-    <button (click)="serv.logout()" class="nav-link active" aria-current="page" >Logo</button>
-    </div>
-      <div class="col-12, column-gap-md-0">
-        <button (click)="serv.logout()" class="nav-link active" aria-current="page" >preferiti</button>
-      </div>
-    <div class="col-12, column-gap-md-0">
-      <button (click)="serv.logout()" class="nav-link active" aria-current="page" >carrello</button>
-    </div>-->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
+  <div class="mb-3">
+    <h4>Ecco i tuoi dati</h4>
+    <div>Username: {{ serv.userInformation?.username }}</div>
+    <div>Email: {{ serv.userInformation?.email }}</div>
   </div>
-</nav>
+
+  <form [formGroup]="usernameForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <h5>Cambia Username</h5>
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        class="form-control mb-2"
+        placeholder="Inserisci nuovo username"
+        [ngClass]="{ 'is-invalid': usernameForm.get('username')?.invalid && usernameForm.get('username')?.touched }"
+      />
+      <div *ngIf="usernameForm.get('username')?.invalid && usernameForm.get('username')?.touched" class="invalid-feedback">
+        Username non valido (minimo 4 caratteri)
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="usernameForm.invalid">
+        Cambia username
+      </button>
+    </div>
+  </form>
+
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmitPassword()">
+    <div class="mb-4">
+      <h5>Cambia Password</h5>
+
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control mb-2"
+        placeholder="Inserisci nuova password"
+        [ngClass]="{
+          'is-invalid': passwordForm.get('password')?.invalid && passwordForm.get('password')?.touched
+        }"
+      />
+      <div *ngIf="passwordForm.get('password')?.invalid && passwordForm.get('password')?.touched" class="invalid-feedback">
+        Password non valida: deve contenere maiuscola, minuscola, numero e simbolo.
+      </div>
+
+      <input
+        type="password"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+        class="form-control mb-2"
+        placeholder="Conferma password"
+        [ngClass]="{
+          'is-invalid': passwordForm.get('confirmPassword')?.touched && !controllaPasswordUguali()
+        }"
+      />
+      <div
+        *ngIf="passwordForm.get('confirmPassword')?.touched && !controllaPasswordUguali()"
+        class="invalid-feedback"
+      >
+        Le password non coincidono
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="passwordForm.invalid || !controllaPasswordUguali()"
+      >
+        Conferma nuova password
+      </button>
+    </div>
+  </form>
+
+  <div class="mt-4">
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="serv.deleteUserProfile()"
+    >
+      Elimina Profilo
+    </button>
+  </div>
+</div>

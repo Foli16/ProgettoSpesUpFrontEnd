@@ -49,7 +49,7 @@ export class AuthService
     //1- imposto userInformation a null
     this.userInformation=null;
     //2 - cancella token
-    document.cookie = 'token=; Path=/api/auth; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'token=; Path=/api; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
 
   login(email: string, password: string)
@@ -80,7 +80,6 @@ export class AuthService
       {
         next: () => {
           this.letturaInfoUtente();
-          this.router.navigate(['/']);
         },
         error: () => {
           alert("Password change failed");
@@ -97,7 +96,6 @@ export class AuthService
       {
         next: () => {
           this.letturaInfoUtente();
-          this.router.navigate(['/']);
         },
         error: () => {
           alert("Username change failed");
@@ -112,7 +110,7 @@ export class AuthService
     (
       {
         next: () =>
-        {
+        {this.logout()
           this.router.navigate(['/']);
         },
         error: () => {
