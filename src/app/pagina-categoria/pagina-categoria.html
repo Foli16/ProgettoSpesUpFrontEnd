@@ -1,0 +1,16 @@
+<div class="container">
+
+  <table class="table table-striped table-hover">
+
+    <tbody>
+      @for (p of serv.getFilteredByName(""); track $index) {
+        <tr>
+          <td>{{p.productName}}</td>
+          <td>{{p.category}}</td>
+          <td>{{p.supermarketName}}</td>
+          <button (click)="tornaSupermercati()">INDIETRO</button>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

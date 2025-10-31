@@ -25,4 +25,6 @@ export class SupermarketService {
   getSupermarkets(address: string): Observable<Supermarket[]> {
     return this.http.get<Supermarket[]>(`/api/supermarkets?address=${encodeURIComponent(address)}`);
   }
+
+
 }

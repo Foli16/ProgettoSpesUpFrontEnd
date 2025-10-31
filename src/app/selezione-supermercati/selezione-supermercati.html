@@ -1,3 +1,6 @@
+<app-map></app-map>
+
+
 <ul class="supermarket-list">
   @for (n of serv.names; track $index) {
     <li class="item">
@@ -10,6 +13,6 @@
   }
 </ul>
 
-<button (click)="serv.getProductsBySupermarket()">
+<button (click)="vaiSupermercati()">
   Cerca Prodotti
 </button>
