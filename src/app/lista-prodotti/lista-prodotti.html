@@ -1,9 +1,42 @@
+
+@if(chiaveNome != "")
+{
 <div class="container">
-  <table class="table table-striped table-hover">
+
+    <table class="table table-striped table-hover">
     <tbody>
-      @for (p of serv.products; track $index) {
-        <tr>{{p.productName}}</tr>
+      @for (p of serv.getFilteredByName(chiaveNome); track $index) {
+        <tr>
+          <td>{{p.productName}}</td>
+          <td>{{p.category}}</td>
+          <td>{{p.supermarketName}}</td>
+          <td><a (click)="vaiCategoria(p.category)">Vedi tutto</a></td>
+        </tr>
       }
     </tbody>
   </table>
 </div>
+} @else {
+<div class="container">
+    @for(cat of serv.productsMap?.keys();track $index)
+    {
+        <h1>{{cat}} <button style="font-size: 50%" (click)="vaiCategoria(cat)">Vedi tutto</button></h1>
+        <table class="table table-striped table-hover">
+        @for(p of prendiProdotti(cat);track $index)
+        {
+
+
+                <tbody>
+                        <tr>
+                            <td>{{p.productName}}</td>
+                            <td>{{p.category}}</td>
+                            <td>{{p.supermarketName}}</td>
+                        </tr>
+                </tbody>
+
+        }
+        </table>
+    }
+</div>
+}
+<input placeholder="filtro" [(ngModel)]="ricerca"><button (click)="chiaveNome = ricerca">Cerca</button><button (click)="chiaveNome = ''; ricerca=''">Reset</button>

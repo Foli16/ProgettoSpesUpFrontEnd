@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     GoogleMap,
     MapMarker,
-    MapInfoWindow
   ],
   styleUrls: ['./map-component.css']
 })
