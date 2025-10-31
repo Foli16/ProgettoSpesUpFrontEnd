@@ -15,14 +15,26 @@ import {MapComponent} from "../map/map-component/map-component";
 })
 export class SelezioneSupermercati
 {
+  selectedNames:string[]=[];
   constructor(public serv: ProductService) {
   }
 
   updateSelectedSupermarkets() {
-    this.serv.selectedNames = this.serv.names
+  this.selectedNames = this.serv.names
       .filter(n => n.selected)
       .map(n => n.name);
+
+
+
   }
+
+  vaiSupermercati()
+  {
+
+    this.serv.navigateToSupermarkets(this.selectedNames);
+  }
+
+
 
 
 }
