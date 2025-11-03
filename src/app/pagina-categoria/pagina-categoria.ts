@@ -12,7 +12,7 @@ import {Product} from '../../model/Product';
 export class PaginaCategoria {
   constructor(public serv:ProductService)
   {
-    this.serv.getFilteredProducts();
+
   }
 
   tornaSupermercati()

@@ -7,10 +7,12 @@ import {MapComponent} from './map/map-component/map-component';
 import {SelezioneSupermercati} from './selezione-supermercati/selezione-supermercati';
 import {Info} from './info/info';
 import {Homepage} from './homepage/homepage';
+import {CardProdotto} from './card-prodotto/card-prodotto';
+import {CardCategoria} from './card-categoria/card-categoria';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent, SelezioneSupermercati, Info, Homepage],
+  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent, SelezioneSupermercati, Info, Homepage, CardProdotto, CardCategoria],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
