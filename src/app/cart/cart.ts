@@ -3,11 +3,13 @@ import {ShoppingList} from '../../model/ShoppingList';
 import {HttpClient} from '@angular/common/http';
 import {CartService} from '../../services/cart-service';
 import {AsyncPipe} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   imports: [
-    AsyncPipe
+    AsyncPipe,
+    RouterLink
   ],
   templateUrl: './cart.html',
   styleUrl: './cart.css'
