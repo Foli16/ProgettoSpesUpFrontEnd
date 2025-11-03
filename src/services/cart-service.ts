@@ -11,17 +11,20 @@ import {TotalsOfLists} from '../model/TotalsOfLists';
 })
 export class CartService
 {
- constructor(private http: HttpClient) {}
+ constructor(private http: HttpClient) {
+   this.getCart();
+ }
 
- shoppingList: ShoppingList = {products: [], cart: false, total: 0};
  comparedList: ComparedLists = {};
  totalsOfLists:  TotalsOfLists = {};
+ shoppingList: ShoppingList = {productList: [], cart: false, total: 0} ;
+
 
 
   addToCart(priceTrendId: string) {
    let body = {};
 
-   return this.http.post("/api/shoppingList/add/" + priceTrendId, body).subscribe({
+   return this.http.post("/api/shoppinglist/add/" + priceTrendId, body).subscribe({
       next: (resp) => {
       },
       error: () => { alert("L'operazione è fallita"); }
@@ -32,7 +35,7 @@ export class CartService
   removeFromCart(priceTrendId: string) {
     let body = {};
 
-    return this.http.delete("/api/shoppingList/remove/" + priceTrendId, body).subscribe({
+    return this.http.delete("/api/shoppinglist/remove/" + priceTrendId, body).subscribe({
       next: (resp) => {
       },
       error: () => { alert("L'operazione è fallita"); }
@@ -40,14 +43,14 @@ export class CartService
   }
 
   getCart() {
-    return this.http.get<ShoppingList>("/api/shoppingList/cart").subscribe({
+    return this.http.get<ShoppingList>("/api/shoppinglist/cart").subscribe({
       next: (resp) => { this.shoppingList = resp},
       error: () => { alert("L'operazione è fallita"); }
     });
   }
 
   compareCart() {
-    return this.http.get<ComparedLists>("/api/shoppingList/compare").subscribe({
+    return this.http.get<ComparedLists>("/api/shoppinglist/compare").subscribe({
       next: (resp) => { this.comparedList = resp},
       error: () => { alert("L'operazione è fallita"); }
     });
@@ -55,7 +58,7 @@ export class CartService
 
 
   totalsOfCart() {
-    return this.http.get<TotalsOfLists>("/api/shoppingList/totals").subscribe({
+    return this.http.get<TotalsOfLists>("/api/shoppinglist/totals").subscribe({
       next: (resp) => { this.totalsOfLists = resp
       },
       error: () => { alert("L'operazione è fallita"); }

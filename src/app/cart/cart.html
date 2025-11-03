@@ -1,0 +1,12 @@
+<div class="container">
+  <table class="table table-striped table-hover">
+    <tbody> @for (p of cartService.shoppingList.productList; track $index) { <tr>
+      <td>{{p.productName}}</td>
+      <td>{{p.category}}</td>
+      <td>{{p.supermarketName}}</td>
+      <td><a (click)="cartService.removeFromCart(p.priceTrendId)">Rimuovi dal carrello</a>
+      </td>
+    </tr> }
+    </tbody>
+  </table>
+</div>

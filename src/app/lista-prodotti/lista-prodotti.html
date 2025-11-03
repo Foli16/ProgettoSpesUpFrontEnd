@@ -10,7 +10,7 @@
           <td>{{p.productName}}</td>
           <td>{{p.category}}</td>
           <td>{{p.supermarketName}}</td>
-          <td><a (click)="vaiCategoria(p.category)">Vedi tutto</a></td>
+          <td><a (click)="cServ.addToCart(p.priceTrendId)">Aggiungi al carrello</a></td>
         </tr>
       }
     </tbody>

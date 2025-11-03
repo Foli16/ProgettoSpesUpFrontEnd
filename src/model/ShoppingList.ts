@@ -1,7 +1,7 @@
 import {Product} from './Product';
 
 export interface ShoppingList{
-  products: Product[];
+  productList: Product[];
   cart: boolean;
   total: number;
 }
