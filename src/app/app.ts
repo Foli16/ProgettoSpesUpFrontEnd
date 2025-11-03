@@ -6,10 +6,11 @@ import {Navbar} from './navbar/navbar';
 import {MapComponent} from './map/map-component/map-component';
 import {SelezioneSupermercati} from './selezione-supermercati/selezione-supermercati';
 import {Info} from './info/info';
+import {Homepage} from './homepage/homepage';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent, SelezioneSupermercati, Info],
+  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent, SelezioneSupermercati, Info, Homepage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -13,8 +13,7 @@ import {SelezioneSupermercati} from '../../selezione-supermercati/selezione-supe
     FormsModule,
     GoogleMap,
     MapMarker,
-    MapInfoWindow,
-    SelezioneSupermercati
+    SelezioneSupermercati,
   ],
   styleUrls: ['./map-component.css']
 })

@@ -43,6 +43,16 @@ h1 {
   font-size: 32px;
   padding: 15px 15px;
   text-transform: uppercase;
+
+}
+
+h2{
+  font-style: initial;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 15px 15px;
+  text-align: center;
+  color: #056939 !important;
 }
 
 .subtitles {
@@ -54,4 +64,15 @@ h1 {
 html, body {
   overflow-x: hidden;
 }
+
+html .container-fluid .theme-toggle-btn,
+html .container-fluid .theme-toggle-btn:active {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+html .container-fluid .theme-toggle-btn:hover {
+  background-color: $neutral;
+}
+
 

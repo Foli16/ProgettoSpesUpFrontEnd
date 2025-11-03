@@ -1,16 +1,19 @@
-
-<ul class="supermarket-list">
+<ul class="list-group">
   @for (n of serv.names; track $index) {
-    <li class="item">
-      <span>{{ n.name }}</span>
-
-      <input type="checkbox"
-             [(ngModel)]="n.selected"
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" [(ngModel)]="n.selected"
              (change)="updateSelectedSupermarkets()" />
-    </li>
+    <label class="form-check-label" for="firstCheckbox">{{ n.name }}</label>
+  </li>
   }
 </ul>
 
-<button (click)="vaiSupermercati()">
-  Cerca Prodotti
-</button>
+<<div style="display: flex; justify-content: center; margin-top: 20px;">
+  <button
+    class="btn btn-primary"
+    style="background-color: #056939; border-color: #056939; color: white; padding: 5px 5px; border-radius: 20px; cursor: pointer; font-size: 20px; width: 200px;"
+    (click)="vaiSupermercati()">
+    <b>Conferma</b>
+  </button>
+</div>
+

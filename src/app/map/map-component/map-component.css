@@ -11,3 +11,71 @@
 .list {
   margin-top: 15px;
 }
+
+.container{
+  margin-bottom: 20px;
+}
+
+.search-container {
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-width: 500px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.search-container:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.form-control.search-input {
+  border: none;
+  background: transparent;
+  padding-left: 20px;
+  font-size: 1rem;
+  height: 50px;
+}
+
+.form-control.search-input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-search {
+  background-color: white;
+  color: #056939;
+  border-radius: 50px;
+  border-color: #056939;
+  padding: 10px 20px;
+  border: 2px solid ;
+  transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+  background-color: #056939;
+  color: white;
+  transform: scale(1.05);
+}
+
+.search-icon {
+  color: #056939;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.mappa-container {
+  max-width: 800px;
+  margin: 0 auto; /* centra orizzontalmente */
+}
