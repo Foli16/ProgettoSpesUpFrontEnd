@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpesUp - Confronta i prezzi dei supermercati in modo intelligente</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero" style="padding-top: 10px" >
+  <div class="container">
+    <div class="hero-text">
+      <h1 style="color: #056939; font-weight: bolder; letter-spacing: -1px">Confronta, scegli e risparmia con SpesUp</h1>
+      <p><strong style="color: #7FB069">SpesUp</strong> è la piattaforma che ti aiuta a trovare i prezzi migliori dei supermercati, online e nella tua zona.
+        Analizziamo migliaia di prodotti per offrirti un confronto chiaro, trasparente e sempre aggiornato.</p>
+      <a type="submit" class="btn btn-primary w-20 " style="background-color: #056939; color: white; padding: 5px 5px; border-radius: 20px; cursor: pointer; font-size: 20px; width: 400px; border:0 auto" href="/map">Inizia a confrontare</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://www.togetherprice.com/it/static/b3262e39635497a3e1a39d198c407c6c/45374/6f91f441-08c8-4f32-bb1c-7e53727f248a.webp" alt="Comparazione prezzi SpesUp">
+    </div>
+  </div>
+</section>
+
+<!-- COME FUNZIONA -->
+<section class="steps" style="padding: 5rem 2rem; text-align: center; background-color: #7FB069; padding-top: 20px">
+  <div class="container">
+    <h2 style="font-weight: bold; font-style: revert; color: #FFF8FE !important; font-size: 3rem;">
+      Come funziona SpesUp
+    </h2>
+    <div class="row g-4">
+
+      <div class="col-md-3 col-sm-6">
+        <div class="step" style="
+          background-color: #FFFFFF;
+          border-radius: 15px;
+          padding: 2rem 1.5rem;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          height: 100%;
+          ">
+          <h5 style="color: #077187; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">
+            Cerca il tuo prodotto
+          </h5>
+          <p style="color: #212121; font-size: 1rem; line-height: 1.6;">
+            Scrivi il nome dell’articolo o esplora le categorie per trovare ciò che ti serve.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="step" style="
+          background-color: #FFFFFF;
+          border-radius: 15px;
+          padding: 2rem 1.5rem;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          height: 100%;
+          ">
+          <h5 style="color: #077187; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">
+            Confronta i prezzi
+          </h5>
+          <p style="color: #212121; font-size: 1rem; line-height: 1.6;">
+            Verifica in tempo reale le differenze di prezzo tra i principali supermercati.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="step" style="
+          background-color: #FFFFFF;
+          border-radius: 15px;
+          padding: 2rem 1.5rem;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          height: 100%;
+          ">
+          <h5 style="color: #077187; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">
+            Scegli dove acquistare
+          </h5>
+          <p style="color: #212121; font-size: 1rem; line-height: 1.6;">
+            Decidi in base a convenienza, distanza e disponibilità dei prodotti.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="step" style="
+          background-color: #FFFFFF;
+          border-radius: 15px;
+          padding: 2rem 1.5rem;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          height: 100%;
+          ">
+          <h5 style="color: #077187; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">
+            Risparmia ogni giorno
+          </h5>
+          <p style="color: #212121; font-size: 1rem; line-height: 1.6;">
+            Con SpesUp il risparmio diventa un’abitudine: più trasparenza, più controllo.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Hover effect inline usando JS perché CSS inline non gestisce :hover
+  document.querySelectorAll('.step').forEach(function(step) {
+    step.addEventListener('mouseenter', function() {
+      step.style.transform = 'translateY(-8px)';
+      step.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+    });
+    step.addEventListener('mouseleave', function() {
+      step.style.transform = 'translateY(0)';
+      step.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.08)';
+    });
+  });
+</script>
+
+
+<!-- VANTAGGI -->
+<section class="vantaggi">
+  <div class="container">
+    <h2 style="font-weight: bold; color: #077187; font-style: revert; font-size: 3rem;text-transform: initial">Perché scegliere SpesUp</h2>
+    <p>SpesUp nasce per semplificare la spesa quotidiana, unendo tecnologia e trasparenza.
+      Ti offriamo dati precisi, analisi affidabili e strumenti per prendere decisioni di acquisto più consapevoli.</p>
+
+    <div class="row g-4 mt-4">
+      <div class="col-md-4">
+        <div class="card">
+          <h5 style="color: #077187; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">Prezzi sempre aggiornati</h5>
+          <p>Raccogliamo quotidianamente dati da decine di catene di supermercati per offrirti un confronto reale e puntuale.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h5 style="color: #077187; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">Trasparenza totale</h5>
+          <p>I nostri confronti si basano su informazioni verificabili. Nessuna pubblicità nascosta, solo dati affidabili.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h5 style="color: #077187; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">Risparmio consapevole</h5>
+          <p>SpesUp non ti dice solo dove costa meno, ma ti aiuta a scegliere meglio per qualità, sostenibilità e valore.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" style="padding-top: 20px; padding-bottom: 10px">
+  <div class="container">
+    <h2 style="font-weight: bold; color: #077187; font-style: revert; font-size: 3rem;text-transform: initial">La nostra missione</h2>
+    <p>Rendere il mercato della spesa più equo e trasparente.
+      Crediamo in un consumo informato, dove ogni scelta si basa su dati chiari e comparazioni affidabili.
+      Con <strong>SpesUp</strong>, fare la spesa in modo intelligente diventa semplice e sostenibile.</p>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
