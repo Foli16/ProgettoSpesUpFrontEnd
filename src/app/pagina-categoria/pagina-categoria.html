@@ -1,3 +1,4 @@
+<button (click)="tornaSupermercati()">INDIETRO</button>
 <div class="container">
       @for (p of serv.getFilteredByName(""); track $index) {
         <app-card-prodotto [product]="p"></app-card-prodotto>
