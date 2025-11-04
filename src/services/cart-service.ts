@@ -18,6 +18,7 @@ export class CartService
  comparedList: ComparedLists = {};
  totalsOfLists:  TotalsOfLists = {};
  shoppingList: ShoppingList = {productList: [], cart: false, total: 0} ;
+ loadingCart:boolean = false;
 
 
 
@@ -37,15 +38,18 @@ export class CartService
 
     return this.http.delete("/api/shoppinglist/remove/" + priceTrendId, body).subscribe({
       next: (resp) => {
+        this.getCart();
       },
       error: () => { alert("L'operazione è fallita"); }
     });
   }
 
   getCart() {
+    this.loadingCart = true;
     return this.http.get<ShoppingList>("/api/shoppinglist/cart").subscribe({
       next: (resp) => { this.shoppingList = resp},
-      error: () => { alert("L'operazione è fallita"); }
+      error: () => { alert("L'operazione è fallita"); },
+      complete: () => this.loadingCart = false
     });
   }
 
