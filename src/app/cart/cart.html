@@ -1,4 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+</style>
 
 <button [routerLink]="'/map'" class="btn-reset" style="background-color: #056939; color: #FFF8FE; border-color: #056939">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
@@ -9,7 +12,7 @@
 </button>
 <div class="container">
   <div>
-   <h2 style="font-weight: bold; color: #077187; font-style: revert; font-size: 3rem; letter-spacing: -0.5px; text-transform: uppercase"> Il tuo carrello </h2>
+   <h2 style="font-weight: 700; color: #077187; font-style: revert; font-size: 3rem; letter-spacing: -0.5px; text-transform: uppercase"> Il tuo carrello </h2>
   </div>
 
   @for (p of cartService.shoppingList.productList; track $index) {
