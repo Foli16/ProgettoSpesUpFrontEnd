@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {ShoppingList} from '../model/ShoppingList';
 import {ComparedLists} from '../model/ComparedLists';
 import {TotalsOfLists} from '../model/TotalsOfLists';
+import {ProductService} from './product-service';
+import {BestSupermarket} from '../model/BestSupermarket';
 
 
 
@@ -11,13 +13,15 @@ import {TotalsOfLists} from '../model/TotalsOfLists';
 })
 export class CartService
 {
- constructor(private http: HttpClient) {
+ constructor(private http: HttpClient, private pServ:ProductService) {
    this.getCart();
  }
 
  comparedList: ComparedLists = {};
  totalsOfLists:  TotalsOfLists = {};
  shoppingList: ShoppingList = {productList: [], cart: false, total: 0} ;
+ loadingCart:boolean = false;
+ best:BestSupermarket = {total:0, bestSupermarket:'', products: []};
 
 
 
@@ -53,6 +57,7 @@ export class CartService
   }
 
   getCart() {
+    this.loadingCart = true;
     return this.http.get<ShoppingList>("/api/shoppinglist/cart").subscribe({
       next: (resp) => { this.shoppingList = resp},
       error: () => { this.openLoginModal(); }
@@ -75,5 +80,20 @@ export class CartService
     });
   }
 
-
+  getBestSupermarket()
+  {
+    let listaNomi:string[] = [];
+    for (let supermarketName of this.pServ.names) {
+      if(supermarketName.selected)
+      {
+        listaNomi.push(supermarketName.name);
+      }
+    }
+    return this.http.post<BestSupermarket>("/api/shoppinglist/cart/best-market", listaNomi).subscribe(
+      {
+        next: (resp) => this.best = resp,
+        error: () => alert("Operazione fallita")
+      }
+    );
+  }
 }

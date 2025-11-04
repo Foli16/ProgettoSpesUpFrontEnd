@@ -14,7 +14,7 @@ import {CardProdotto} from '../card-prodotto/card-prodotto';
 export class PaginaCategoria implements OnInit{
   constructor(public serv:ProductService, public cServ:CartService)
   {
-
+    this.serv.getFilteredProducts();
   }
 
   ngOnInit(): void {
