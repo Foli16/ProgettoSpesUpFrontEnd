@@ -188,6 +188,7 @@ export class ProductService {
     this.http.post<Product[]>("/api/search/selectedstores", supermarkets).subscribe({
       next: (resp) => {
         this.products = resp;
+        this.products.sort((p1,p2) => p1.price - p2.price);
         this.productsMap = this.getProductsByCategoryMap();
         },
       error: () => { alert("L'operazione è fallita"); }
@@ -196,7 +197,8 @@ export class ProductService {
 
   public getProductsByCategory(category: string, supermarkets?: string[]): void {
     this.http.post<Product[]>("/api/search/category/" + category, supermarkets || []).subscribe({
-      next: (resp) => { this.products = resp; },
+      next: (resp) => { this.products = resp;
+        this.products.sort((p1,p2) => p1.price - p2.price)},
       error: () => { alert("Operazione fallita"); }
     });
   }

@@ -16,7 +16,7 @@ import {CartService} from '../../services/cart-service';
 export class PaginaCategoria {
   constructor(public serv:ProductService, public cServ:CartService)
   {
-
+    this.serv.getFilteredProducts();
   }
 
   tornaSupermercati()
