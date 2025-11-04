@@ -191,16 +191,24 @@ export class ProductService {
         this.products.sort((p1,p2) => p1.price - p2.price);
         this.productsMap = this.getProductsByCategoryMap();
         },
-      error: () => { alert("L'operazione è fallita"); }
+      error: () => { this.openLoginModal(); }
     });
   }
 
   public getProductsByCategory(category: string, supermarkets?: string[]): void {
     this.http.post<Product[]>("/api/search/category/" + category, supermarkets || []).subscribe({
-      next: (resp) => { this.products = resp;
-        this.products.sort((p1,p2) => p1.price - p2.price)},
-      error: () => { alert("Operazione fallita"); }
+      next: (resp) => { this.products = resp; },
+      error: () => { this.openLoginModal(); }
     });
+  }
+  openLoginModal() {
+    const btn = document.createElement('button');
+    btn.setAttribute('data-bs-toggle', 'modal');
+    btn.setAttribute('data-bs-target', '#loginModal');
+    btn.style.display = 'none'; // opzionale
+    document.body.appendChild(btn);
+    btn.click(); // 🔹 apre il modal
+    document.body.removeChild(btn);
   }
 
   // --- METODI PRIVATI DI UTILITÀ PER LA QUERY --- (invariati)

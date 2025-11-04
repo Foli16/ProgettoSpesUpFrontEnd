@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {CartService} from '../../services/cart-service';
 import {AsyncPipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
+import {map} from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -16,6 +17,8 @@ import {RouterLink} from '@angular/router';
 })
 export class Cart {
 
+  chiaveNome="";
+  ricerca = "";
 
   constructor(public cartService: CartService) {
 
@@ -28,4 +31,5 @@ export class Cart {
     this.cartService.getCart(); // chiama il service per ottenere il carrello
   }
 
+  protected readonly map = map;
 }
