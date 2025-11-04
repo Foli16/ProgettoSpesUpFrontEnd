@@ -9,3 +9,9 @@
 .lista-prodotti-container app-card-categoria {
   width: 100%;
 }
+
+.container-search {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px; /* spazio tra le card */
+}
