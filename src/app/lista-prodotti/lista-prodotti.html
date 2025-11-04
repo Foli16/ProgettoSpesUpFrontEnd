@@ -1,3 +1,39 @@
+
+<body>
+<button (click)="chiaveNome = ''; ricerca=''" class="btn-reset">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </svg>
+</button>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="search-container position-relative">
+        <form class="d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="search-icon feather feather-search">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            class="form-control search-input ps-5"
+            type="search"
+            placeholder="Cerca un prodotto"
+            [(ngModel)]="ricerca"
+            name="ricerca"
+            aria-label="Search">
+          <button (click)="chiaveNome = ricerca" class="btn btn-search ms-2" type="submit">Cerca</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 @if (chiaveNome != "") {
   <div class="container-search">
     @for (p of serv.getFilteredByName(chiaveNome); track $index) {
@@ -17,11 +53,6 @@
       </app-card-categoria>
 
     }
-
   </div>
-
 }
-
-<input placeholder="filtro" [(ngModel)]="ricerca">
-<button (click)="chiaveNome = ricerca">Cerca</button>
-<button (click)="chiaveNome = ''; ricerca=''">Reset</button>
+</body>

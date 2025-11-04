@@ -46,6 +46,7 @@ export class CartService
 
     return this.http.delete("/api/shoppinglist/remove/" + priceTrendId, body).subscribe({
       next: (resp) => {
+        window.location.reload();
       },
       error: () => { this.openLoginModal(); }
     });

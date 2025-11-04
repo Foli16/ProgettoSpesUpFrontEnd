@@ -1,13 +1,61 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<button [routerLink]="'/map'" class="btn-reset" style="background-color: #056939; color: #FFF8FE; border-color: #056939">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </svg>
+</button>
 <div class="container">
-  <table class="table table-striped table-hover">
-    <tbody> @for (p of cartService.shoppingList.productList; track $index) { <tr>
-      <td>{{p.productName}}</td>
-      <td>{{p.category}}</td>
-      <td>{{p.supermarketName}}</td>
-      <td><a (click)="cartService.removeFromCart(p.priceTrendId)">Rimuovi dal carrello</a>
-      </td>
-    </tr> }
-    </tbody>
-  </table>
-    <button [routerLink]="'/compare'">CONFRONTA</button>
+  <div>
+   <h2 style="font-weight: bold; color: #077187; font-style: revert; font-size: 3rem; letter-spacing: -0.5px; text-transform: uppercase"> Il tuo carrello </h2>
+  </div>
+
+  @for (p of cartService.shoppingList.productList; track $index) {
+
+    <article class="product-card" aria-label="Scheda prodotto">
+      <div class="media">
+
+        <button class="favorite" aria-pressed="false" title="Aggiungi ai preferiti">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.1 20.6s-7.1-4.7-9.2-7.2C-0.6 9.5 3.3 4 8.6 6.4c2.1 1 3.4 3.2 3.4 3.2s1.3-2.2 3.4-3.2c5.3-2.4 9.2 3.1 5.7 7.0-2.1 2.6-9.2 7.4-9.2 7.4z" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+      <img class="product-img" [src]="p.imgUrl" [alt]="p.productName">
+
+        <div class="product-body">
+        <div>
+          <div class="category">{{p.category}}</div>
+          <h3 class="title">{{p.productName}}</h3>
+        </div>
+        </div>
+
+        <div class="meta">
+          <div class="weight">{{p.description}}</div>
+        </div>
+
+        <div class="price-row">
+          <div class="price">
+            <span class="current-price">{{p.price}} €</span>
+          </div>
+        </div>
+        <div class="actions" style="display: inline-block; margin: 0 auto;">
+          <button
+            (click)="cartService.removeFromCart(p.priceTrendId)"
+            class="btn btn-primary"
+            aria-label="Rimuovi dal carrello"
+            style="background-color: #056939; font-size:15px; display: flex; flex-direction: column; align-items: center; margin-top: 60px">
+            Togli dal carrello
+            <span class="bi-cart-x-fill"></span>
+          </button>
+        </div>
+      </div>
+    </article>
+        }
+  <div class="d-flex justify-content-center" style="display: inline-block; margin-top: 50px">
+    <button  class="btn btn-primary" style="background-color: #056939; font-size:20px; display: flex;" [routerLink]="'/compare'">Vai alla comparazione</button>
+  </div>
 </div>
+
