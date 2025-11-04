@@ -8,10 +8,12 @@ import {SelezioneSupermercati} from './selezione-supermercati/selezione-supermer
 import {Info} from './info/info';
 import {Homepage} from './homepage/homepage';
 import {Cart} from './cart/cart';
+import {CardProdotto} from './card-prodotto/card-prodotto';
+import {CardCategoria} from './card-categoria/card-categoria';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent, SelezioneSupermercati, Info, Homepage, Cart],
+  imports: [RouterOutlet, Login, Register, Navbar, Login, MapComponent, SelezioneSupermercati, Info, Homepage, CardProdotto, CardCategoria, Cart],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

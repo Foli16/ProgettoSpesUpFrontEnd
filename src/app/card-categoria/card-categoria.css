@@ -1,0 +1,22 @@
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+.btn.rounded-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

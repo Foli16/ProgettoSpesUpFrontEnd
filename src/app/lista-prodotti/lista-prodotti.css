@@ -1,0 +1,11 @@
+.lista-prodotti-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.lista-prodotti-container app-card-categoria {
+  width: 100%;
+}
