@@ -7,6 +7,8 @@ import {Homepage} from './homepage/homepage';
 import {MapComponent} from './map/map-component/map-component';
 import {ListaProdotti} from './lista-prodotti/lista-prodotti';
 import {PaginaCategoria} from './pagina-categoria/pagina-categoria';
+import {Cart} from './cart/cart';
+import {ComparationPage} from './comparation-page/comparation-page';
 
 
 export const routes: Routes = [
@@ -16,6 +18,8 @@ export const routes: Routes = [
   {path:"map",component:MapComponent},
   {path:"info",component:Info,canActivate:[loggedGuard]},
   {path:"productsofsupermarket", component:ListaProdotti},
-  {path:"bycategory", component:PaginaCategoria}
+  {path:"bycategory", component:PaginaCategoria},
+  {path:"cart", component:Cart},
+  {path:"compare", component:ComparationPage}
 ];
 

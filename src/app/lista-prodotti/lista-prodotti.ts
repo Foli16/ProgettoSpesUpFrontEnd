@@ -4,6 +4,7 @@ import {ProductService} from '../../services/product-service';
 import {FormsModule} from '@angular/forms';
 import {Product} from '../../model/Product';
 import {SelezioneSupermercati} from '../selezione-supermercati/selezione-supermercati';
+import {CartService} from '../../services/cart-service';
 
 @Component({
   selector: 'app-lista-prodotti',
@@ -18,7 +19,7 @@ export class ListaProdotti implements OnInit{
   chiaveNome="";
   ricerca = "";
 
-  constructor(public serv: ProductService)
+  constructor(public serv: ProductService, public cServ: CartService)
   {
     this.serv.getFilteredProducts();
   }
@@ -37,5 +38,6 @@ export class ListaProdotti implements OnInit{
   {
     this.serv.addCategoryToCurrentSupermarkets(category);
   }
+
 
 }
