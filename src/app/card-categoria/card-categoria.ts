@@ -18,8 +18,9 @@ export class CardCategoria {
 
   constructor(private router: Router, public serv: ProductService) {}
 
-  goToCategoryPage() {
-    this.serv.addCategoryToCurrentSupermarkets(this.categoryName);
+  vaiCategoria(category: string)
+  {
+    this.serv.addCategoryToCurrentSupermarkets(category);
   }
 
   scrollLeft() {

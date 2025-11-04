@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ProductService} from '../../services/product-service';
 import {NgIf} from '@angular/common';
 import {Product} from '../../model/Product';
+import {CartService} from '../../services/cart-service';
 
 @Component({
   selector: 'app-card-prodotto',
@@ -17,7 +18,7 @@ export class CardProdotto implements OnInit{
   ricerca = "";
   @Input() product!: Product;
 
-  constructor(public serv: ProductService)
+  constructor(public serv: ProductService, public cServ: CartService)
   {
 
   }

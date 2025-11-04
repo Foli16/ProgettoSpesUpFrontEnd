@@ -5,11 +5,15 @@ import {FormsModule} from '@angular/forms';
 import {Product} from '../../model/Product';
 import {SelezioneSupermercati} from '../selezione-supermercati/selezione-supermercati';
 import {CartService} from '../../services/cart-service';
+import {CardCategoria} from '../card-categoria/card-categoria';
+import {CardProdotto} from '../card-prodotto/card-prodotto';
 
 @Component({
   selector: 'app-lista-prodotti',
   imports: [
-    FormsModule
+    FormsModule,
+    CardCategoria,
+    CardProdotto
   ],
   templateUrl: './lista-prodotti.html',
   styleUrl: './lista-prodotti.css'

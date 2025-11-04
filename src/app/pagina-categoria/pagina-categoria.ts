@@ -3,6 +3,7 @@ import {ProductService} from '../../services/product-service';
 import {ActivatedRoute} from '@angular/router';
 import {Product} from '../../model/Product';
 import {CardProdotto} from '../card-prodotto/card-prodotto';
+import {CartService} from '../../services/cart-service';
 
 @Component({
   selector: 'app-pagina-categoria',
@@ -13,7 +14,7 @@ import {CardProdotto} from '../card-prodotto/card-prodotto';
   styleUrl: './pagina-categoria.css'
 })
 export class PaginaCategoria {
-  constructor(public serv:ProductService)
+  constructor(public serv:ProductService, public cServ:CartService)
   {
 
   }
