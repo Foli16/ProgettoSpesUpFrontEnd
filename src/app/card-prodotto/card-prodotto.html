@@ -240,7 +240,7 @@
 
 
     <div class="actions" style="display: inline-block; margin: 0 auto;">
-      <button class="btn btn-primary" aria-label="Aggiungi al carrello" style="background-color: #056939; font-size:15px; display: flex;">
+      <button (click)="cServ.addToCart(product.priceTrendId)" class="btn btn-primary" aria-label="Aggiungi al carrello" style="background-color: #056939; font-size:15px; display: flex;">
         <span class="bi-cart-dash"></span></button>
     </div>
 

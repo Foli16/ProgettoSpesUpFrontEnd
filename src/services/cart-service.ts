@@ -27,8 +27,17 @@ export class CartService
    return this.http.post("/api/shoppinglist/add/" + priceTrendId, body).subscribe({
       next: (resp) => {
       },
-      error: () => { alert("L'operazione è fallita"); }
+      error: () => { this.openLoginModal(); }
     });
+  }
+  openLoginModal() {
+    const btn = document.createElement('button');
+    btn.setAttribute('data-bs-toggle', 'modal');
+    btn.setAttribute('data-bs-target', '#loginModal');
+    btn.style.display = 'none'; // opzionale
+    document.body.appendChild(btn);
+    btn.click(); // 🔹 apre il modal
+    document.body.removeChild(btn);
   }
 
 
@@ -38,21 +47,21 @@ export class CartService
     return this.http.delete("/api/shoppinglist/remove/" + priceTrendId, body).subscribe({
       next: (resp) => {
       },
-      error: () => { alert("L'operazione è fallita"); }
+      error: () => { this.openLoginModal(); }
     });
   }
 
   getCart() {
     return this.http.get<ShoppingList>("/api/shoppinglist/cart").subscribe({
       next: (resp) => { this.shoppingList = resp},
-      error: () => { alert("L'operazione è fallita"); }
+      error: () => { this.openLoginModal(); }
     });
   }
 
   compareCart() {
     return this.http.get<ComparedLists>("/api/shoppinglist/compare").subscribe({
       next: (resp) => { this.comparedList = resp},
-      error: () => { alert("L'operazione è fallita"); }
+      error: () => { this.openLoginModal(); }
     });
   }
 
@@ -61,7 +70,7 @@ export class CartService
     return this.http.get<TotalsOfLists>("/api/shoppinglist/totals").subscribe({
       next: (resp) => { this.totalsOfLists = resp
       },
-      error: () => { alert("L'operazione è fallita"); }
+      error: () => { this.openLoginModal(); }
     });
   }
 
