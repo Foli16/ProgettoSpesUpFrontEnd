@@ -28,35 +28,41 @@
 
 }
 <input placeholder="filtro" [(ngModel)]="ricerca"><button (click)="chiaveNome = ricerca">Cerca</button><button (click)="chiaveNome = ''; ricerca=''">Reset</button>-->
-@if(chiaveNome != "")
-{
+@if (chiaveNome != "") {
   <div class="container">
 
     <table class="table table-striped table-hover">
       <tbody>
         @for (p of serv.getFilteredByName(chiaveNome); track $index) {
           <tr>
-            <td>{{p.productName}}</td>
-            <td>{{p.category}}</td>
-            <td>{{p.supermarketName}}</td>
+            <td>{{ p.productName }}</td>
+            <td>{{ p.category }}</td>
+            <td>{{ p.supermarketName }}</td>
             <td><a (click)="vaiCategoria(p.category)">Vedi tutto</a></td>
           </tr>
         }
       </tbody>
     </table>
+
   </div>
+
 } @else {
-  <div class="container">
-    @for(cat of serv.productsMap?.keys();track $index)
-    {
 
-      <table class="table table-striped table-hover">
+  <div class="container lista-prodotti-container">
 
+    @for (cat of serv.productsMap?.keys(); track $index) {
 
-          <app-card-categoria [products]="prendiProdotti(cat)!"></app-card-categoria>
+      <app-card-categoria
+        [categoryName]="cat"
+        [products]="prendiProdotti(cat) || []">
+      </app-card-categoria>
 
-      </table>
     }
+
   </div>
+
 }
-<input placeholder="filtro" [(ngModel)]="ricerca"><button (click)="chiaveNome = ricerca">Cerca</button><button (click)="chiaveNome = ''; ricerca=''">Reset</button>
+
+<input placeholder="filtro" [(ngModel)]="ricerca">
+<button (click)="chiaveNome = ricerca">Cerca</button>
+<button (click)="chiaveNome = ''; ricerca=''">Reset</button>
