@@ -1,5 +1,5 @@
 <div class="container">
-
+  <button (click)="tornaSupermercati()">INDIETRO</button>
   <table class="table table-striped table-hover">
 
     <tbody>
@@ -8,7 +8,7 @@
           <td>{{p.productName}}</td>
           <td>{{p.category}}</td>
           <td>{{p.supermarketName}}</td>
-          <button (click)="tornaSupermercati()">INDIETRO</button>
+          <td><button (click)="cServ.addToCart(p.priceTrendId)">Aggiungi al carrello</button></td>
         </tr>
       }
     </tbody>
