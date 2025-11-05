@@ -19,6 +19,5 @@ export class ComparationPage {
   riempiListe()
   {
     this.serv.compareCart();
-    this.serv.getBestSupermarket();
   }
 }

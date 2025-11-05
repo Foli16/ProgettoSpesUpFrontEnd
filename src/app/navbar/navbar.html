@@ -9,7 +9,7 @@
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation" style="color: #FFF8FE; border-color: #FFF8FE" >
         <span class="bi-person"></span>
       </button>
     </div>
@@ -23,8 +23,8 @@
 
     <!-- DESTRA -->
     <div class="d-flex align-items-center gap-2 ms-auto">
-      <button (click)="serv.logout()" class="nav-link active" aria-current="page" ><span class="bi-heart"></span></button>
-      <button [routerLink]="'/cart'" class="nav-link active" aria-current="page" ><span class="bi-cart-dash"></span></button>
+      <button (click)="serv.logout()" class="nav-link active" aria-current="page" style="color: #FFF8FE; border-color: #FFF8FE" ><span class="bi-heart"></span></button>
+      <button [routerLink]="'/cart'" class="nav-link active" aria-current="page" style="color: #FFF8FE; border-color: #FFF8FE" ><span class="bi-cart-dash"></span></button>
       <app-bottone-cambio-tema></app-bottone-cambio-tema>
     </div>
   </div>
