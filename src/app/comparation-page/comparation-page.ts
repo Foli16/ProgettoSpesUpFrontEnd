@@ -20,18 +20,7 @@ export class ComparationPage {
 
   riempiListe()
   {
-    this.serv.compareCart();
+    this.serv.getSeparatedShoppingLists();
+    this.serv.getBestSupermarket();
   }
-
-  // dividiProdottiNeiSupermercati()
-  // {
-  //   let map = new Map<string,Product[]>;
-  //   for(let p of this.serv.shoppingList.productList)
-  //   {
-  //     if(!map.has(p.supermarketName))
-  //       map.set(p.supermarketName, [])
-  //     map.get(p.supermarketName)!.push(p);
-  //   }
-  //   return Array.from(map);
-  // }
 }

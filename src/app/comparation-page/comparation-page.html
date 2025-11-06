@@ -2,7 +2,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 </style>
 <div class="container">
-  @for (entry of serv.comparedList | keyvalue; track entry.key)
+  @for (entry of serv.separatedLists | keyvalue; track entry.key)
   {
     <h1 style="margin-top: 20px; text-align:center; color: #056939; font-weight: 700">{{entry.key}}</h1>
         @for (p of entry.value; track $index)

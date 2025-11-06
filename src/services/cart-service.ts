@@ -17,6 +17,7 @@ export class CartService
    this.getCart();
  }
 
+ separatedLists: ComparedLists ={};
  comparedList: ComparedLists = {};
  totalsOfLists:  TotalsOfLists = {};
  shoppingList: ShoppingList = {productList: [], cart: false, total: 0} ;
@@ -71,6 +72,15 @@ export class CartService
     });
   }
 
+  getSeparatedShoppingLists()
+  {
+    return this.http.get<ComparedLists>("/api/shoppinglist/listsbymarket").subscribe(
+      {
+        next:(resp) => this.separatedLists = resp,
+        error:() => alert("Errore")
+      }
+    )
+  }
 
   totalsOfCart() {
     return this.http.get<TotalsOfLists>("/api/shoppinglist/totals").subscribe({

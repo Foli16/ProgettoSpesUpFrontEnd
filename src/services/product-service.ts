@@ -25,6 +25,7 @@ export class ProductService {
   products: Product[] = [];
   productsMap:Map<string,Product[]>|null=null;
   names: SupermarketName[] = [];
+  categoryPageName:string = '';
 
   constructor(
     private http: HttpClient,
@@ -190,6 +191,8 @@ export class ProductService {
         this.products = resp;
         this.products.sort((p1,p2) => p1.price - p2.price);
         this.productsMap = this.getProductsByCategoryMap();
+        const sortedEntries = [...this.productsMap.entries()].sort(([a],[b]) => a.localeCompare(b));
+        this.productsMap = new Map(sortedEntries);
         },
       error: () => { this.openLoginModal(); }
     });
