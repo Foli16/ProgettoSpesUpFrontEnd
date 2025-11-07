@@ -1,7 +1,7 @@
 import {Product} from './Product';
 
 export interface BestSupermarket{
-  total:number,
-  bestSupermarket:string,
+  supermarketName:string,
+  productsNotFound:Product[],
   products:Product[]
 }

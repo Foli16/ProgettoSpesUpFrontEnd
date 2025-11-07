@@ -200,7 +200,7 @@ export class ProductService {
 
   public getProductsByCategory(category: string, supermarkets?: string[]): void {
     this.http.post<Product[]>("/api/search/category/" + category, supermarkets || []).subscribe({
-      next: (resp) => { this.products = resp; },
+      next: (resp) => { this.products = resp; this.products.sort((a, b) => a.price - b.price);},
       error: () => { this.openLoginModal(); }
     });
   }

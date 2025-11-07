@@ -14,4 +14,5 @@ export interface Product
   imgUrl: string;
   supermarketId: string;
   supermarketName: string;
+  found: boolean;
 }

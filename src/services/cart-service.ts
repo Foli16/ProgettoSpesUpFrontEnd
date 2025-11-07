@@ -18,11 +18,10 @@ export class CartService
  }
 
  separatedLists: ComparedLists ={};
- comparedList: ComparedLists = {};
  totalsOfLists:  TotalsOfLists = {};
  shoppingList: ShoppingList = {productList: [], cart: false, total: 0} ;
  loadingCart:boolean = false;
- best:BestSupermarket = {total:0, bestSupermarket:'', products: []};
+ comparisonLists:ComparedLists = {};
 
 
 
@@ -65,13 +64,6 @@ export class CartService
     });
   }
 
-  compareCart() {
-    return this.http.get<ComparedLists>("/api/shoppinglist/compare").subscribe({
-      next: (resp) => { this.comparedList = resp},
-      error: () => { this.openLoginModal(); }
-    });
-  }
-
   getSeparatedShoppingLists()
   {
     return this.http.get<ComparedLists>("/api/shoppinglist/listsbymarket").subscribe(
@@ -90,19 +82,18 @@ export class CartService
     });
   }
 
-  getBestSupermarket()
+  getComparisonLists()
   {
-    let listaNomi:string[] = [];
-    for (let supermarketName of this.pServ.names) {
-      if(supermarketName.selected)
+    return this.http.get<ComparedLists>("/api/shoppinglist/cart/comparison").subscribe(
       {
-        listaNomi.push(supermarketName.name);
-      }
-    }
-    return this.http.post<BestSupermarket>("/api/shoppinglist/cart/best-market", listaNomi).subscribe(
-      {
-        next: (resp) => this.best = resp,
-        error: () => alert("Operazione fallita")
+        next: (resp) =>
+        {
+          this.comparisonLists = resp;
+          for(let el in this.comparisonLists)
+            this.comparisonLists[el].sort((a, b) => a.productName.localeCompare(b.productName));
+        },
+
+        error: () => this.openLoginModal()
       }
     );
   }

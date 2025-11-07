@@ -15,12 +15,13 @@ import {ComparedLists} from '../../model/ComparedLists';
 export class ComparationPage {
 
   constructor(public serv:CartService) {
-    this.riempiListe();
+    this.fillArrays();
   }
 
-  riempiListe()
+  fillArrays()
   {
     this.serv.getSeparatedShoppingLists();
-    this.serv.getBestSupermarket();
+    this.serv.getComparisonLists();
+    this.serv.totalsOfCart();
   }
 }
